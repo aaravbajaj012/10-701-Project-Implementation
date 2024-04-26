@@ -1,0 +1,5 @@
+RAG/deeplearning.pem
+__pycache__/
+.env/
+.git/
+.DS_Store
