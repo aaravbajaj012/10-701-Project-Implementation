@@ -17,7 +17,6 @@ from tqdm import tqdm
 if __name__ == '__main__':
     #freeze_support ()
 
-
     # Load knowledge base
     ds = datasets.load_dataset("m-ric/huggingface_doc", split="train")
 
@@ -55,10 +54,13 @@ if __name__ == '__main__':
         os.mkdir("./output")
 
     chunk_size = 200
+    #num_docs = 10 # Number of documents to retrieve, uncomment to test with a fixed number of documents and vary chunk size
+    # for baseline llm set num_docs to 0
 
+    #for chunk_size in [50, 100, 200, 400]:
     for num_docs in [5, 10, 20, 40]: 
         for embeddings in ["thenlper/gte-small"]:
-            settings_name = f"num-docs:{num_docs}_embeddings:{embeddings.replace('/', '~')}_reader-model:{READER_MODEL_NAME}"
+            settings_name = f"chunk_size:{chunk_size}_num-docs:{num_docs}_embeddings:{embeddings.replace('/', '~')}_reader-model:{READER_MODEL_NAME}"
             output_file_name = f"./output/rag_{settings_name}.json"
 
             print(f"Running evaluation for {settings_name}:")
