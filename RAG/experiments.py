@@ -56,8 +56,8 @@ if __name__ == '__main__':
 
     chunk_size = 200
 
-    for num_docs in [5, 10, 20, 40]:  # Add other chunk sizes (in tokens) as needed
-        for embeddings in ["thenlper/gte-small"]:  # Add other embeddings as needed
+    for num_docs in [5, 10, 20, 40]: 
+        for embeddings in ["thenlper/gte-small"]:
             settings_name = f"num-docs:{num_docs}_embeddings:{embeddings.replace('/', '~')}_reader-model:{READER_MODEL_NAME}"
             output_file_name = f"./output/rag_{settings_name}.json"
 
